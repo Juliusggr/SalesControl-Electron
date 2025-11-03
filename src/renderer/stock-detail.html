@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Stock</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Estilos adicionales para esta ventana modal */
+      body {
+        background-color: var(--bg-dark); /* Coincide con el fondo principal */
+        padding: 0;
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--text-primary); /* Texto claro para fondo oscuro */
+      }
+      .content {
+        padding: 2rem;
+      }
+      .panel {
+        margin-top: 0;
+      }
+      #section-title {
+        margin-bottom: 1.5rem; /* Espacio entre el título y la tabla */
+      }
+      .data-table th:first-child,
+      .data-table td:first-child,
+      .data-table th:nth-child(2),
+      .data-table td:nth-child(2) {
+        width: 25%;
+      }
+    </style>
+  </head>
+  <body>
+
+    <main class="content">
+      <h2 id="section-title">Detalle de Stock por Producto</h2>
+      <div class="panel">
+        <table class="data-table" id="table-stock-detail">
+          <thead>
+            <tr>
+              <th class="text-left">Producto</th>
+              <th class="text-center">Stock Total</th>
+              <th class="text-left">Desglose por Talla</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+    <script type="module" src="./stock-detail.js"></script>
+  </body>
+</html>

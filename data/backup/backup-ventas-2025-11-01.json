@@ -1,0 +1,172 @@
+{
+  "products": [
+    {
+      "id": "RxBbPumvd8_XSdnkhIvK_",
+      "name": "Vestido Floral",
+      "price": 10,
+      "stockBySize": {
+        "S": 2,
+        "M": 3,
+        "L": 3
+      },
+      "sku": "SKU-001"
+    },
+    {
+      "id": "pP5XeoXHI21pGtgK8FqZD",
+      "name": "Camisa Negra",
+      "price": 5,
+      "stockBySize": {
+        "M": 10,
+        "S": 13,
+        "L": 5
+      },
+      "sku": "SKU-002"
+    }
+  ],
+  "customers": [
+    {
+      "id": "eIxZ8zrTn2OpVNe82G7nn",
+      "name": "Laura Martinez",
+      "phone": "55 1234 5678",
+      "email": "cleinte@email.com",
+      "notes": ""
+    },
+    {
+      "id": "bElzXj1MkMgvFFnjfCWwr",
+      "name": "Chester Fino",
+      "phone": "58 422 0308563",
+      "email": "chester@gmail.com",
+      "notes": "Prefiere Tallas M"
+    }
+  ],
+  "sales": [
+    {
+      "id": "dbr19X6O9PKGkkH8jURYv",
+      "items": [
+        {
+          "productId": "RxBbPumvd8_XSdnkhIvK_",
+          "name": "Vestido Floral",
+          "size": "S",
+          "quantity": 1,
+          "price": 10
+        }
+      ],
+      "customerId": "eIxZ8zrTn2OpVNe82G7nn",
+      "paymentMethod": "Efectivo",
+      "notes": "",
+      "date": "2025-10-31T22:38:43.489Z",
+      "total": 10
+    },
+    {
+      "id": "fIZkS7ZaKl2geKorZrtrr",
+      "items": [
+        {
+          "productId": "RxBbPumvd8_XSdnkhIvK_",
+          "name": "Vestido Floral",
+          "size": "M",
+          "quantity": 2,
+          "price": 10
+        }
+      ],
+      "customerId": null,
+      "paymentMethod": "Pago Móvil",
+      "notes": "",
+      "paymentReference": "1234567890",
+      "date": "2025-10-31T22:44:19.441Z",
+      "total": 20
+    },
+    {
+      "id": "xsC5ZgassnNncEtR8KX88",
+      "items": [
+        {
+          "productId": "RxBbPumvd8_XSdnkhIvK_",
+          "name": "Vestido Floral",
+          "size": "M",
+          "quantity": 2,
+          "price": 10
+        },
+        {
+          "productId": "RxBbPumvd8_XSdnkhIvK_",
+          "name": "Vestido Floral",
+          "size": "S",
+          "quantity": 1,
+          "price": 10
+        }
+      ],
+      "customerId": "eIxZ8zrTn2OpVNe82G7nn",
+      "paymentMethod": "Pago Móvil",
+      "notes": "",
+      "paymentReference": "189274817481",
+      "date": "2025-11-01T15:58:12.976Z",
+      "total": 30
+    },
+    {
+      "id": "fUVrMg2pdCTgUh1nuApGg",
+      "items": [
+        {
+          "productId": "RxBbPumvd8_XSdnkhIvK_",
+          "name": "Vestido Floral",
+          "size": "S",
+          "quantity": 1,
+          "price": 10
+        },
+        {
+          "productId": "pP5XeoXHI21pGtgK8FqZD",
+          "name": "Camisa Negra",
+          "size": "S",
+          "quantity": 2,
+          "price": 5
+        }
+      ],
+      "customerId": null,
+      "paymentMethod": "Efectivo",
+      "notes": "",
+      "paymentReference": null,
+      "date": "2025-11-01T16:02:46.638Z",
+      "total": 20
+    },
+    {
+      "id": "1XOlZclNFipzxILwGR8BP",
+      "items": [
+        {
+          "productId": "pP5XeoXHI21pGtgK8FqZD",
+          "name": "Camisa Negra",
+          "size": "M",
+          "quantity": 5,
+          "price": 5
+        },
+        {
+          "productId": "RxBbPumvd8_XSdnkhIvK_",
+          "name": "Vestido Floral",
+          "size": "M",
+          "quantity": 3,
+          "price": 10
+        }
+      ],
+      "customerId": "bElzXj1MkMgvFFnjfCWwr",
+      "paymentMethod": "Efectivo",
+      "notes": "",
+      "paymentReference": null,
+      "date": "2025-11-01T16:17:35.053Z",
+      "total": 55
+    },
+    {
+      "id": "0Ivtf0uxcQX8nH-7BppeU",
+      "items": [
+        {
+          "productId": "RxBbPumvd8_XSdnkhIvK_",
+          "name": "Vestido Floral",
+          "size": "L",
+          "quantity": 1,
+          "price": 10
+        }
+      ],
+      "customerId": "eIxZ8zrTn2OpVNe82G7nn",
+      "paymentMethod": "Efectivo",
+      "notes": "",
+      "paymentReference": null,
+      "date": "2025-11-01T16:25:45.895Z",
+      "total": 10
+    }
+  ]
+}

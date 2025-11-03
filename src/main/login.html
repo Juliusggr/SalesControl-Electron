@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="./login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="brand">
+        <span class="logo">👗</span>
+        <h1>Tienda Chic</h1>
+      </div>
+      <form id="login-form">
+        <p class="form-title">Iniciar Sesión</p>
+        <label>
+          Usuario
+          <input type="text" id="username" value="admin" required />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" id="password" value="1234" required />
+        </label>
+        <div class="form-actions">
+          <button type="button" id="quit-button" class="btn-secondary">Salir</button>
+          <button type="submit" class="btn-primary">Ingresar</button>
+        </div>
+        <p id="error-message" class="error-message hidden"></p>
+      </form>
+    </div>
+    <script src="./login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "electron-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "package": "echo \"Packaging step not yet configured\"",
+    "test": "node ./scripts/run-tests.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^38.2.2"
+  },
+  "dependencies": {
+    "nanoid": "^5.1.6"
+  }
+}

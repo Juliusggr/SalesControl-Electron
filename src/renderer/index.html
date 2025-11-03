@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control de Ventas - Tienda de Ropa</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="logo">👗</span>
+          <div>
+            <h1>Tienda Chic</h1>
+            <p>Panel de Ventas</p>
+          </div>
+        </div>
+        <nav class="menu">
+          <button class="menu-item active" data-target="dashboard">Dashboard</button>
+          <button class="menu-item" data-target="products">Productos</button>
+          <button class="menu-item" data-target="customers">Clientes</button>
+          <button class="menu-item" data-target="sales">Ventas</button>
+          <button class="menu-item" data-target="settings">Configuración</button>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <h2 id="section-title">Dashboard</h2>
+          <div class="topbar-actions">
+            <span class="status-pill" id="sync-status">Datos sincronizados</span>
+          </div>
+        </header>
+
+        <section class="view active" id="view-dashboard">
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Total Ventas</h3>
+              <p class="card-value" id="metric-total-sales">$0</p>
+              <span class="card-subtitle">Ingresos acumulados</span>
+            </article>
+            <article class="card">
+              <h3>Ticket Promedio</h3>
+              <p class="card-value" id="metric-average-ticket">$0</p>
+              <span class="card-subtitle">Valor medio por venta</span>
+            </article>
+            <article class="card interactive-card" id="card-stock">
+              <h3>Stock Disponible</h3>
+              <p class="card-value" id="metric-stock">0</p>
+              <span class="card-subtitle">Productos listados</span>
+            </article>
+            <article class="card">
+              <h3>Clientes Activos</h3>
+              <p class="card-value" id="metric-customers">0</p>
+              <span class="card-subtitle">Registrados en la base</span>
+            </article>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Últimas Ventas</h3>
+            </div>
+            <table class="data-table" id="table-recent-sales">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Producto</th>
+                  <th>Cliente</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th>Pago</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="view-products">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Registrar / Editar Producto</h3>
+            </div>
+            <form id="form-product" class="form-grid">
+              <input type="hidden" id="product-id" />
+              <label class="full">
+                Nombre
+                <input type="text" id="product-name" required placeholder="Vestido floral" />
+              </label>
+              <label>
+                SKU
+                <input type="text" id="product-sku" placeholder="SKU-001" />
+              </label>
+              <label>
+                Precio
+                <input type="number" id="product-price" min="0" step="0.01" required />
+              </label>
+              <div class="full stock-by-size-container">
+                <h4>Stock por Talla</h4>
+                <div id="stock-by-size-list">
+                  <!-- Tallas y stocks se agregarán aquí dinámicamente -->
+                </div>
+                <div class="add-size-wrapper">
+                  <input type="text" id="new-size-input" placeholder="Ej: M, 42, 27.5" />
+                  <button type="button" id="add-size-btn" class="btn secondary">Añadir Talla</button>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn primary">Guardar</button>
+                <button type="reset" class="btn ghost" id="product-reset">Limpiar</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Inventario</h3>
+            </div>
+            <table class="data-table" id="table-products">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tallas Disponibles</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="view-customers">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Registrar / Editar Cliente</h3>
+            </div>
+            <form id="form-customer" class="form-grid">
+              <input type="hidden" id="customer-id" />
+              <label class="full">
+                Nombre y Apellido
+                <input type="text" id="customer-name" required placeholder="Laura Martínez" />
+              </label>
+              <label>
+                Teléfono
+                <input type="tel" id="customer-phone" placeholder="55 1234 5678" />
+              </label>
+              <label >
+                Cédula de Identidad
+                <input type="text" id="customer-ci" placeholder="V-12345678" />
+              </label>
+              <label class="full">
+                Correo Electrónico
+                <input type="email" id="customer-email" placeholder="cliente@email.com" />
+              </label>
+              <label class="full">
+                Dirección
+                <textarea
+                  id="customer-address"
+                  rows="3"
+                  placeholder="Calle, número, ciudad..."
+                ></textarea>
+              </label>
+              <div class="form-actions">
+                <button type="submit" class="btn primary">Guardar</button>
+                <button type="reset" class="btn ghost" id="customer-reset">Limpiar</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Clientes</h3>
+              <div class="panel-controls">
+                <input type="search" id="customer-search" placeholder="Buscar por nombre o cédula..." />
+              </div>
+            </div>
+            <table class="data-table" id="table-customers">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Cédula</th>
+                  <th>Teléfono</th>
+                  <th>Email</th>
+                  <th>Dirección</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="view-sales">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Registrar Venta</h3>
+            </div>
+            <div class="sale-content">
+              <div class="sale-form-column">
+                <form id="form-sale" class="form-grid">
+                  <div class="full sale-customer-payment">
+                    <label>
+                      Buscar Cliente (Nombre o Cédula)
+                      <input type="text" id="sale-customer-search" placeholder="Escribe para filtrar..." />
+                    </label>
+                    <label>
+                      Cliente
+                      <select id="sale-customer"></select>
+                    </label>
+                    <label>
+                      Método de pago
+                      <select id="sale-payment">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Pago Móvil">Pago Móvil</option>
+                        <option value="Transferencia">Transferencia</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div class="full sale-product-adder">
+                    <!-- Nueva estructura para los campos de búsqueda -->
+                    <div class="input-group search-group">
+                      <label class="half">
+                        Buscar por Nombre
+                        <input type="text" id="sale-product-search" placeholder="Ej: Vestido..." />
+                      </label>
+                      <label class="half">
+                        Buscar por Código
+                        <input type="text" id="sale-product-sku" placeholder="Ej: SKU-001" />
+                      </label>
+                    </div>
+                    <!-- Nueva estructura para los campos de selección de producto, talla y cantidad -->
+                    <div class="input-group product-details-group">
+                      <label class="third">
+                        Producto
+                        <select id="sale-product" required></select>
+                      </label>
+                      <label class="third">
+                        Talla
+                        <select id="sale-product-size" required></select>
+                      </label>
+                      <label class="third">
+                        Cantidad
+                        <input type="number" id="sale-quantity" min="1" value="1" step="1" required />
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <label class="full">
+                    Notas
+                    <textarea id="sale-notes" rows="3" placeholder="Detalles adicionales"></textarea>
+                  </label>
+                  <div class="form-actions">
+                    <button type="button" id="add-to-cart-btn" class="btn primary">Añadir al carrito</button>
+                    <button type="submit" class="btn primary">Registrar</button>
+                    <button type="reset" class="btn ghost" id="sale-reset">Limpiar</button>
+                  </div>
+                </form>
+              </div>
+              <div class="sale-cart-column">
+                <div class="sale-cart">
+                  <h4>Carrito de Venta</h4>
+                  <ul id="sale-cart-items">
+                    <!-- Items del carrito se agregarán aquí -->
+                  </ul>
+                  <div class="sale-summary">
+                    <span>Total:</span>
+                    <strong id="sale-total-summary">$0.00</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Historial de Ventas</h3>
+            </div>
+            <table class="data-table" id="table-sales">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Producto</th>
+                  <th>Cliente</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th>Método</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <section class="view" id="view-settings">
+        <h3>Copia de Seguridad y Restauración</h3>
+        <div class="settings-actions">
+          <div class="action-item">
+            <h4>Respaldar Datos</h4>
+            <p>Guarda una copia de seguridad de todos los datos en un archivo.</p>
+            <button class="btn secondary" id="btn-backup">Crear Respaldo</button>
+          </div>
+          <div class="action-item">
+            <h4>Importar Datos</h4>
+            <p>Restaura desde un archivo. Los datos actuales se reemplazarán.</p>
+            <button class="btn secondary" id="btn-import">Importar Respaldo</button>
+          </div>
+          <div class="action-item danger-zone">
+            <h4>Borrar Todos los Datos</h4>
+            <p>Elimina todos los registros de la aplicación. Esta acción es irreversible.</p>
+            <button class="btn danger" id="btn-reset">Borrar Datos</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
